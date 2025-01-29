@@ -34,7 +34,6 @@ class LoginLogJob implements ShouldQueue
         } else {
             Log::info("User Logged in at ". Carbon::now());
             Log::info($this->user);
-            Mail::to(config('app.login_log_email'))->send(new LoginLogMail($this->user));
         }
     }
 }
