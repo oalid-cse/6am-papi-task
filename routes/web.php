@@ -12,3 +12,8 @@ Route::get('login', function () {
 Route::middleware('auth')->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('job', function () {
+    dispatch(new App\Jobs\LoginLogJob(\App\Models\User::find(1)));
+    return "Job dispatched";
+});

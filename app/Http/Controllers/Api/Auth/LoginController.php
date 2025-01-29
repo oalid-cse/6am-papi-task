@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Api\ApiResponseController;
 use App\Http\Requests\Api\Auth\LoginRequest;
+use App\Jobs\LoginLogJob;
 use Illuminate\Http\Response;
 
 class LoginController extends ApiResponseController
@@ -14,6 +15,8 @@ class LoginController extends ApiResponseController
 
         if (auth()->attempt($credentials)) {
             $token = auth()->user()->createToken('authToken')->accessToken;
+
+            dispatch(new LoginLogJob(auth()->user()));
             return $this->successResponse(
                 ['token' => $token],
                 'User authenticated successfully'

@@ -15,6 +15,9 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'login_log_method' => env('LOGIN_LOG_METHOD', 'log'), /*log, mail*/
+    'login_log_email' => env('LOGIN_LOG_EMAIL', 'oalid.mmj@gmail.com'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
