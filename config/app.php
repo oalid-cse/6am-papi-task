@@ -18,6 +18,8 @@ return [
     'login_log_method' => env('LOGIN_LOG_METHOD', 'log'), /*log, mail*/
     'login_log_email' => env('LOGIN_LOG_EMAIL', 'oalid.mmj@gmail.com'),
 
+    'backup_database_to_s3' => env('BACKUP_DATABASE_TO_S3', true),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
